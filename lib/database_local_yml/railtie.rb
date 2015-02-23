@@ -3,7 +3,7 @@ require 'database_local_yml'
 
 module DatabaseLocalYml
   class Railtie < ::Rails::Railtie
-    initializer "database_local_yml.append_database_local_yml" do
+    config.before_initialize do
       path = "config/database.local.yml"
 
       if !Rails.env.production? && File.exist?(Rails.root + path)
