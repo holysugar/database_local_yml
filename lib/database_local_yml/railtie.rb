@@ -7,7 +7,7 @@ module DatabaseLocalYml
       path = "config/database.local.yml"
 
       if !Rails.env.production? && File.exist?(Rails.root + path)
-        Rails.application.config.paths.add "config/database", with: path
+        DatabaseLocalYml.apply(Rails.application, path)
       end
     end
   end
