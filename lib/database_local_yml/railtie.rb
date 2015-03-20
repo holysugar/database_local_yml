@@ -6,7 +6,7 @@ module DatabaseLocalYml
     config.before_initialize do
       path = "config/database.local.yml"
 
-      if !Rails.env.production? && File.exist?(Rails.root + path)
+      if !Rails.env.production?
         DatabaseLocalYml.apply(Rails.application, path)
       end
     end
